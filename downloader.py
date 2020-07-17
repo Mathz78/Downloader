@@ -2,6 +2,8 @@ import requests
 import eyed3
 import os
 
+i = 1
+
 print("Bem vindo!! Aqui você pode baixar áudios.")
 print()
 
@@ -25,4 +27,5 @@ while(opcao == 1):
     # Variavel recebendo o nome do arquivo.
     file_name = audiofile.tag.title
 
-    os.rename(r'arquivo.mp3',r'{}.mp3'.format(file_name))
+    os.rename(r'arquivo.mp3',r'{} -  {}.mp3'.format(i, file_name))
+    i = i + 1
