@@ -4,28 +4,28 @@ import os
 
 i = 1
 
-print("Bem vindo!! Aqui você pode baixar áudios.")
+print("Welcome!! Here you can download some audios.")
 print()
 
 print("=============== Menu ===============")
-print("1 - Baixar áudio")
-print("2 - Sair")
-opcao = int(input("Informe a opção: "))
+print("1 - Download audio")
+print("2 - Exit")
+option = int(input("Enter the option: "))
 
-while(opcao == 1):
-    # Consultar URL
-    url = input("Informe a URL: ")
+while(option == 1):
+    # Query the URL
+    url = input("Enter the URL: ")
     request = requests.get(url, allow_redirects=True)
 
-    # Baixar o arquivo e nomear com o valor "1"
-    file_name = "arquivo.mp3"
+    # Download the file and name with value "audio.mp3"
+    file_name = "audio.mp3"
     open(file_name, "wb").write(request.content)
 
-    # Variável para receber o titulo do arquivo
-    audiofile = eyed3.load("arquivo.mp3")
+    # Variable receive the information of the file.
+    audiofile = eyed3.load("audio.mp3")
 
-    # Variavel recebendo o nome do arquivo.
+    # Variable receive the title of the file.
     file_name = audiofile.tag.title
 
-    os.rename(r'arquivo.mp3',r'{} -  {}.mp3'.format(i, file_name))
+    os.rename(r'audio.mp3',r'{} -  {}.mp3'.format(i, file_name))
     i = i + 1
